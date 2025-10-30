@@ -1,0 +1,72 @@
+/*
+--------------------------------------------
+Experiment No: 2
+AIM:
+To illustrate the concept of Classes and Objects in C++ by implementing
+member functions defined both inside and outside the class using a Car example.
+--------------------------------------------
+ALGORITHM:
+1. Start the program.
+2. Define a class named 'Car' with data members: brand, model, and year.
+3. Define a member function 'getData()' inside the class to input details.
+4. Declare another member function 'display()' inside the class but define it outside.
+5. In main(), create an object of the class Car.
+6. Call getData() and display() using the object.
+7. Display the car details and stop the program.
+--------------------------------------------
+CODE:
+*/
+#include <iostream>
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    string model;
+    int year;
+
+public:
+    // Member function defined inside the class
+    void getData() {
+        cout << "Enter Car Brand: ";
+        cin >> brand;
+        cout << "Enter Car Model: ";
+        cin >> model;
+        cout << "Enter Manufacturing Year: ";
+        cin >> year;
+    }
+
+    // Member function declared inside but defined outside the class
+    void display();
+};
+
+// Member function defined outside the class using scope resolution operator
+void Car::display() {
+    cout << "\nCar Details:\n";
+    cout << "Brand: " << brand << endl;
+    cout << "Model: " << model << endl;
+    cout << "Year: " << year << endl;
+}
+
+int main() {
+    Car c;
+    c.getData();
+    c.display();
+    return 0;
+}
+
+/*
+--------------------------------------------
+OUTPUT:
+Enter Car Brand: Toyota
+Enter Car Model: Fortuner
+Enter Manufacturing Year: 2022
+
+Car Details:
+Brand: Toyota
+Model: Fortuner
+Year: 2022
+--------------------------------------------
+RESULT:
+Thus, the program to illustrate the concept of classes and objects with
+member functions defined both inside and outside the class was executed successfully.
