@@ -58,26 +58,11 @@ int main() {
 
     return 0;
 }
-3. Implement passing object as function arguments and return object from function
-  #include <iostream>
-
-    class MyClass {
-    public:
-        int value;
-        MyClass(int v) : value(v) {}
-    };
-
-    void modifyObject(MyClass obj) { // obj is a copy
-        obj.value = 100;
-    }
-
-    int main() {
-        MyClass originalObj(10);
-        std::cout << "Original value before: " << originalObj.value << std::endl;
-        modifyObject(originalObj);
-        std::cout << "Original value after: " << originalObj.value << std::endl; // Still 10
-        return 0;
-    }
+--------------------------------------------
+Output:
+Sum of two integers: 15
+Sum of three integers: 30
+Combined string: Hello, World!
 --------------------------------------------
 Result:
 successfully implemented.
