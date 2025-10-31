@@ -1,0 +1,83 @@
+Aim:
+To implement passing an object as a function argument and observe the behavior of pass-by-value.
+--------------------------------------------
+
+Algorithm:
+1:Start the program.
+2:Create a class named MyClass with:
+3:A public integer data member value.
+4:A constructor that initializes value with an argument.
+5:Define a function modifyObject(MyClass obj) that:
+6:Takes an object of MyClass as a parameter (passed by value).
+7:Modifies obj.value to 100.
+8:In the main() function:
+a. Create an object originalObj of class MyClass with initial value 10.
+b. Display the value before modification.
+c. Call the function modifyObject(originalObj).
+d. Display the value after the function call.
+9:Observe that the value of originalObj remains unchanged because it was passed by value (copy made).
+10:End the program.
+--------------------------------------------
+
+Code:
+#include <iostream>
+#include <string>
+
+class Calculator {
+public:
+    // Overloaded member function to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded member function to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded member function to concatenate two strings
+    std::string add(const std::string& s1, const std::string& s2) {
+        return s1 + s2;
+    }
+};
+
+int main() {
+    Calculator calc;
+
+    // Call the add function for integers (two arguments)
+    int sum1 = calc.add(5, 10);
+    std::cout << "Sum of two integers: " << sum1 << std::endl;
+
+    // Call the add function for integers (three arguments)
+    int sum2 = calc.add(5, 10, 15);
+    std::cout << "Sum of three integers: " << sum2 << std::endl;
+
+    // Call the add function for strings
+    std::string combinedString = calc.add("Hello, ", "World!");
+    std::cout << "Combined string: " << combinedString << std::endl;
+
+    return 0;
+}
+3. Implement passing object as function arguments and return object from function
+  #include <iostream>
+
+    class MyClass {
+    public:
+        int value;
+        MyClass(int v) : value(v) {}
+    };
+
+    void modifyObject(MyClass obj) { // obj is a copy
+        obj.value = 100;
+    }
+
+    int main() {
+        MyClass originalObj(10);
+        std::cout << "Original value before: " << originalObj.value << std::endl;
+        modifyObject(originalObj);
+        std::cout << "Original value after: " << originalObj.value << std::endl; // Still 10
+        return 0;
+    }
+--------------------------------------------
+Result:
+The object originalObj (value = 10) is passed by value to modifyObject().
