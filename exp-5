@@ -1,0 +1,73 @@
+Aim:
+To demonstrate the use with its types and destructor. of constructor
+---------------------------------------------
+Algorithm:
+1: Start
+2. Define a clars (Gay Demo)
+3. Inside the class, declare.
+- Dala members
+-A default constructor
+-A parameterized constructor
+-A copy constructor
+4: In Main function
+-Create an object (default constructor)
+-Create another object (paro metonized
+-Create a third object using Create the cof a copy constructor.
+5.When program execution reaches the end
+6: END
+--------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    int value;
+
+    // Default constructor
+    MyClass() {
+        value = 0;
+        cout << "Default Constructor Called. Value: " << value << endl;
+    }
+
+    // Parameterized constructor
+    MyClass(int val) {
+        value = val;
+        cout << "Parameterized Constructor Called. Value: " << value << endl;
+    }
+
+    // Copy constructor
+    MyClass(const MyClass &other) {
+        value = other.value;
+        cout << "Copy Constructor Called. Copied Value: " << value << endl;
+    }
+
+    // Destructor
+    ~MyClass() {
+        cout << "Destructor Called for object with Value: " << value << endl;
+    }
+};
+
+int main() {
+    MyClass obj1;          // Calls Default Constructor
+    MyClass obj2(10);      // Calls Parameterized Constructor
+    MyClass obj3 = obj2;   // Calls Copy Constructor
+
+    return 0;
+}
+------------------------------------------------------
+outPut:
+Default Constructor Called. Value: 0
+Parameterized Constructor Called. Value: 10
+Copy Constructor Called. Copied Value: 10
+Destructor Called for object with Value: 10
+Destructor Called for object with Value: 10
+Destructor Called for object with Value: 0
+--------------------------------------------------------
+Result:
+The program successfully demonstrates the working of:
+-Default Constructor
+-Parameterized Constructor
+-Copy Constructor
+-Destructor
+Implemented succeffully in oop suing cpp
