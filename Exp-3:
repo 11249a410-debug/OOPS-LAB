@@ -80,4 +80,5 @@ int main() {
     }
 --------------------------------------------
 Result:
+successfully implemented.
 The object originalObj (value = 10) is passed by value to modifyObject().
