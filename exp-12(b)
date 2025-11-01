@@ -1,0 +1,54 @@
+Aim:
+to implement the comparision operator overloading in cpp
+---------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Define a class Compare.
+5:Declare a data member (for example, int value).
+6:Define a constructor to initialize the data member.
+7Overload a comparison operator (like >, <, or ==) using a member function.
+8:In the main function:
+9:Create two objects of the class.
+10:Compare the objects using the overloaded operator.
+11:Display the result.
+12:Stop the program.
+-------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Compare {
+    int value;
+public:
+    Compare(int v = 0) {
+        value = v;
+    }
+
+    // Overloading > operator
+    bool operator > (Compare obj) {
+        return value > obj.value;
+    }
+};
+
+int main() {
+    Compare c1(25), c2(15);
+
+    if (c1 > c2)
+        cout << "Object c1 is greater than c2" << endl;
+    else
+        cout << "Object c2 is greater than or equal to c1" << endl;
+
+    return 0;
+}
+
+------------------------------------------------------------
+output:
+Object c1 is greater than c2
+
+-----------------------------------------------------------
+Conclusion:
+
+Thus, the program to implement Comparison Operator Overloading in C++ was successfully executed.
+It demonstrates how relational operators like >, <, or == can be overloaded to compare objects based on their data members, enhancing object-oriented flexibility.
