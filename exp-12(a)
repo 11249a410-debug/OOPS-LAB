@@ -1,0 +1,61 @@
+Aim:
+To implement the use of assingment operator overling
+------------------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Define a class Example.
+5:Declare a data member (for example, int value).
+6:Define a constructor to initialize the data member.
+7:Overload the assignment operator (=) using a member function operator=().
+8:In the main function:
+9:Create two objects of the class.
+10:Assign one object to another using the overloaded operator.
+11:Display the result.
+12:Stop the program.
+---------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Example {
+    int value;
+public:
+    Example(int v = 0) {
+        value = v;
+    }
+
+    // Overloading assignment operator
+    Example& operator = (const Example &obj) {
+        value = obj.value;
+        return *this;
+    }
+
+    void display() {
+        cout << "Value = " << value << endl;
+    }
+};
+
+int main() {
+    Example obj1(50);
+    Example obj2;
+
+    obj2 = obj1;  // Using overloaded assignment operator
+
+    cout << "Object 1: ";
+    obj1.display();
+    cout << "Object 2: ";
+    obj2.display();
+
+    return 0;
+}
+-----------------------------------------------------------
+output:
+Object 1: Value = 50
+Object 2: Value = 50
+
+-------------------------------------------------------------
+conclusion:
+Thus, the program to implement Assignment Operator Overloading in C++ was successfully executed.
+It demonstrates how the assignment operator (=) can be customized to copy the values of one object into another, enabling proper object-to-object assignment in OOP.
