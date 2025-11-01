@@ -1,5 +1,229 @@
-Aim:
-    To learn the basic fonctionalities of and the importance of OOP concepts
------------------------------------------------
-(A):
-Aim:
+/* 
+--------------------------------------------
+Experiment No: 1
+AIM:
+To study and understand the basic concepts and principles 
+of Object-Oriented Programming (OOP) in C++.
+--------------------------------------------
+QUESTION:
+What is Object-Oriented Programming (OOP)?
+
+--------------------------------------------
+THEORY:
+Object-Oriented Programming (OOP) is a programming 
+paradigm based on the concept of "objects" that contain 
+data (attributes) and functions (methods) to operate on 
+that data.  
+
+C++ is an object-oriented programming language that 
+supports the main principles of OOP — encapsulation, 
+abstraction, inheritance, and polymorphism.  
+OOP helps in building modular, reusable, and maintainable 
+software systems.
+
+--------------------------------------------
+MAIN PRINCIPLES OF OOP:
+1. *Class and Object*
+2. *Encapsulation*
+3. *Abstraction*
+4. *Inheritance*
+5. *Polymorphism*
+--------------------------------------------
+
+1️⃣ *CLASS AND OBJECT*
+A class is a blueprint or template for creating objects.  
+An object is an instance of a class.
+
+Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int rollNo;
+
+    void display() {
+        cout << "Name: " << name << ", Roll No: " << rollNo << endl;
+    }
+};
+
+int main() {
+    Student s1;              // Object creation
+    s1.name = "Alice";
+    s1.rollNo = 101;
+    s1.display();
+    return 0;
+}
+Output:
+
+yaml
+Copy code
+Name: Alice, Roll No: 101
+2️⃣ ENCAPSULATION
+Encapsulation is the process of wrapping data and
+functions into a single unit (class) and restricting direct
+access using access specifiers (private, protected, public).
+
+Example:
+
+cpp
+Copy code
+#include <iostream>
+using namespace std;
+
+class Account {
+private:
+    double balance;
+
+public:
+    void deposit(double amount) {
+        balance += amount;
+    }
+    void showBalance() {
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    Account acc;
+    acc.deposit(1000);
+    acc.showBalance();
+    return 0;
+}
+Output:
+
+yaml
+Copy code
+Balance: 1000
+3️⃣ ABSTRACTION
+Abstraction hides unnecessary details from the user and
+shows only the essential features of an object.
+
+Example:
+
+cpp
+Copy code
+#include <iostream>
+using namespace std;
+
+class CoffeeMachine {
+public:
+    void makeCoffee() {
+        boilWater();
+        brewCoffee();
+        pourInCup();
+        cout << "Coffee is ready!" << endl;
+    }
+
+private:
+    void boilWater() { cout << "Boiling water..." << endl; }
+    void brewCoffee() { cout << "Brewing coffee..." << endl; }
+    void pourInCup() { cout << "Pouring into cup..." << endl; }
+};
+
+int main() {
+    CoffeeMachine c;
+    c.makeCoffee();  // User doesn’t see inner details
+    return 0;
+}
+Output:
+
+csharp
+Copy code
+Boiling water...
+Brewing coffee...
+Pouring into cup...
+Coffee is ready!
+4️⃣ INHERITANCE
+Inheritance allows one class (derived) to acquire the
+properties and behaviors of another (base) class.
+
+Example:
+
+cpp
+Copy code
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    void start() { cout << "Vehicle started" << endl; }
+};
+
+class Car : public Vehicle {
+public:
+    void honk() { cout << "Car horn beep!" << endl; }
+};
+
+int main() {
+    Car c1;
+    c1.start();  // Inherited function
+    c1.honk();   // Own function
+    return 0;
+}
+Output:
+
+arduino
+Copy code
+Vehicle started
+Car horn beep!
+5️⃣ POLYMORPHISM
+Polymorphism means “many forms.”
+It allows functions or operators to behave differently
+based on the object that invokes them.
+
+Example (Function Overriding):
+
+cpp
+Copy code
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() {
+        cout << "Drawing a shape" << endl;
+    }
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a circle" << endl;
+    }
+};
+
+int main() {
+    Shape* shape;
+    Circle c;
+    shape = &c;
+    shape->draw();  // Calls derived class function (runtime polymorphism)
+    return 0;
+}
+Output:
+
+arduino
+Copy code
+Drawing a circle
+ADVANTAGES OF OOP:
+
+Code reusability through inheritance
+
+Data security through encapsulation
+
+Easy debugging and maintenance
+
+Real-world modeling through classes and objects
+
+Flexibility via polymorphism
+
+Simplified program design and structure
+
+RESULT:
+Thus, the study and implementation of basic Object-Oriented
+Programming (OOP) concepts — Class, Object, Encapsulation,
+Abstraction, Inheritance, and Polymorphism — were successfully
+understood and demonstrated using C++ programs.
+*/
