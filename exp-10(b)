@@ -1,0 +1,66 @@
+*/
+--------------------------------------------------------------------
+Experiment 10(b)
+Overloading with a friend function
+--------------------------------------------------------------------
+Aim:
+To implement operator overloading using a
+friend function allowing access to private data of the class.
+--------------------------------------------------------------------
+Algorithm:
+Define a class with private data members.
+Declare a friend function to overload the operator.
+Define the friend function outside the class,
+accessing private members to perform the intended operation.
+Create objects of the class.
+Use the overloaded operator implemented by the friend function.
+Display the results.
+--------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Number {
+private:
+    int num;
+public:
+    Number() : num(0) {}
+    Number(int n) : num(n) {}
+
+    // Declare friend function for operator overloading
+    friend Number operator-(const Number &obj);
+
+    void display() {
+        cout << "Number: " << num << endl;
+    }
+};
+
+// Friend function to overload unary minus operator
+Number operator-(const Number &obj) {
+    return Number(-obj.num);
+}
+
+int main() {
+    Number n1(20);
+    Number n2;
+
+    cout << "Original ";
+    n1.display();
+
+    n2 = -n1;   // Use overloaded unary minus operator
+
+    cout << "Negated ";
+    n2.display();
+
+    return 0;
+}
+--------------------------------------------------------------------
+output:
+Original Number: 20
+Negated Number: -20
+--------------------------------------------------------------------
+Result:
+The friend function successfully overloads the unary minus operator.
+The program negates the value of the object 
+using the overloaded operator.
+Demonstrates the use of friend functions for operator overloading.
