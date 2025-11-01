@@ -1,0 +1,53 @@
+*/
+-------------------------------------------------------------------------------------------------------
+Experiment 9(c)
+Member Function of Another Class as Friend Function
+-------------------------------------------------------------------------------------------------------
+Aim:
+To demonstrate how a member function of one class can be made a friend of another class, 
+allowing it to access the private members of that class.
+-------------------------------------------------------------------------------------------------------
+Algorithm:
+Define two classes, say ClassA and ClassB.
+Inside ClassA, declare a specific member function of ClassB as a friend using the friend keyword.
+Implement the friend function in ClassB, so it can access private data of ClassA.
+Create objects of both classes.
+Use the friend function of ClassB to access the private members of ClassA.
+-------------------------------------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class ClassB;  // Forward declaration
+
+class ClassA {
+private:
+    int numA;
+public:
+    ClassA() : numA(20) {}
+    friend void ClassB::showNum(ClassA &a);  // Declare specific member function as friend
+};
+
+class ClassB {
+public:
+    void showNum(ClassA &a) {
+        cout << "Accessing ClassA private member numA: " << a.numA << endl;
+    }
+};
+
+int main() {
+    ClassA a;
+    ClassB b;
+    b.showNum(a);  // Calls friend member function accessing private data
+    
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------
+output:
+Accessing ClassA private member numA: 20
+-------------------------------------------------------------------------------------------------------
+Result:
+The program shows how the member function showNum of ClassB is a friend to ClassA.
+This function can directly access the private member numA of ClassA.
+It illustrates the selective granting of access privileges to specific member function of another 
+class in c++
