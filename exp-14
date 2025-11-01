@@ -1,0 +1,57 @@
+Aim:
+to understand and implement the class template
+-------------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Define a class template using the syntax template <class T>.
+5:Create a class Calculator that can store and operate on data of any type T.
+6:Define member functions to perform basic operations (like addition).
+7:In the main function:
+8:Create objects of the template class with different data types (int, float).
+9:Call the member function and display the result.
+10:Stop the program.
+-------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+// Class Template
+template <class T>
+class Calculator {
+    T num1, num2;
+public:
+    Calculator(T a, T b) {
+        num1 = a;
+        num2 = b;
+    }
+
+    void add() {
+        cout << "Sum = " << num1 + num2 << endl;
+    }
+};
+
+int main() {
+    Calculator<int> c1(10, 20);       // Integer type
+    Calculator<float> c2(5.5, 3.2);   // Float type
+
+    cout << "Integer addition:" << endl;
+    c1.add();
+
+    cout << "Float addition:" << endl;
+    c2.add();
+
+    return 0;
+}
+
+---------------------------------------------------
+
+output:
+Integer addition:
+Sum = 30
+Float addition:
+Sum = 8.7
+
+------------------------------------------------------
+conthe program to understand and implement a Class Template in C++ was successfully executed.
