@@ -1,0 +1,44 @@
+Aim:
+To implement pre-defined exception handling in Cpp
+--------------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Read two numbers from the user for division.
+5:Use a try block to perform the division.
+6:Check if the denominator is zero — if yes, throw an exception.
+7:Catch the exception using a catch block with a predefined data type (like int or runtime_error).
+8:Display an appropriate error message.
+9:Stop the program.
+-------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    try {
+        if (b == 0)
+            throw runtime_error("Division by zero error!");
+        else
+            cout << "Result = " << a / b << endl;
+    }
+    catch (runtime_error &e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------
+Output:
+Enter two numbers: 10 0
+Exception caught: Division by zero error!
+
+-----------------------------------------
+Conclusion:
+the program to implement Pre-defined Exception Handling in C++ was successfully executed.
