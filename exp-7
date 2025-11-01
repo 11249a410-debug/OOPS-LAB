@@ -1,0 +1,60 @@
+*/
+--------------------------------------------------------------------------------------------------------------------------------
+Experiment:7
+Illustrate the use of array of objects 
+---------------------------------------------------------------------------------------------------------------------------------
+Aim:
+To illustrate the use of arrays of objects in C++, 
+which are useful for storing and manipulating collections of similar entities efficiently using a single array structure.
+--------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+Define a class with attributes and member functions.
+Declare an array of objects of this class.
+Initialize the objects using a loop or individually.
+Access members of the objects in the array using loop iteration.
+Perform required operations such as display or compute using the array of objects.
+---------------------------------------------------------------------------------------------------------------------------------
+code:
+#include <iostream>
+using namespace std;
+
+class Student {
+    int id;
+    float marks;
+
+public:
+    void assignValues(int x, float y) {
+        id = x;
+        marks = y;
+    }
+
+    void display() {
+        cout << "ID: " << id << ", Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s[3];  // Array of 3 Student objects
+
+    // Assign values to each object in the array
+    s[0].assignValues(101, 85.6);
+    s[1].assignValues(102, 90.4);
+    s[2].assignValues(103, 78.9);
+
+    // Display the details of all students using the array of objects
+    for (int i = 0; i < 3; i++) {
+        s[i].display();
+    }
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------------------
+output:
+ID: 101, Marks: 85.6
+ID: 102, Marks: 90.4
+ID: 103, Marks: 78.9
+-----------------------------------------------------------------------------------------------------------------------------------
+Result:
+The program successfully demonstrates the use of an array of 
+objects to manage and access multiple instances of a class efficiently.
+Each object stores individual data, and the array structure allows handling them collectively for operations like assignment and display.
