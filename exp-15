@@ -1,0 +1,43 @@
+Aim:
+To implement function template in oop using cpp
+--------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Declare a function template using the syntax
+5:template <class T>.
+6:Define a function add(T a, T b) that returns the sum of a and b.
+7:In the main function:
+8:Call the function add() with integer arguments.
+9:Call the function add() with float arguments.
+10:Call the function add() with character arguments.
+11:Display the results on the screen.
+12:Stop the program.
+------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+// Function Template
+template <class T>
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    cout << "Addition of integers: " << add(10, 20) << endl;
+    cout << "Addition of floats: " << add(5.5, 3.2) << endl;
+    cout << "Addition of characters: " << add('A', 2) << endl;  // 'A' + 2 → 'C'
+    return 0;
+}
+
+---------------------------------------------------------------
+output:
+Addition of integers: 30
+Addition of floats: 8.7
+Addition of characters: C
+-------------------------------------------------------------
+Conclusion:
+Thus, the program to implement a function template in C++ is successfully executed.
+It demonstrates how a single function definition can work with different data types (int, float, char) using templates — making the code reusable and flexible.
