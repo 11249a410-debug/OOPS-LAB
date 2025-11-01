@@ -1,0 +1,46 @@
+Aim:
+To implement file handling in cpp
+----------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream> and <fstream>.
+3:Use the std namespace.
+4:Create an object of the ofstream class to write data into a file.
+5:Open a file and write some content to it.
+6:Close the file after writing.
+7:Create an object of the ifstream class to read data from the file.
+8:Open the same file and display its content on the screen.
+9:Close the file.
+10:Stop the program.
+----------------------------------------------------
+Code:
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Writing to a file
+    ofstream outfile("sample.txt");  // create and open file
+    outfile << "Hello, this is a file handling example in C++!" << endl;
+    outfile.close();  // close file after writing
+
+    // Reading from the file
+    ifstream infile("sample.txt");
+    string line;
+    cout << "Content of the file:" << endl;
+    while (getline(infile, line)) {
+        cout << line << endl;
+    }
+    infile.close();  // close file after reading
+
+    return 0;
+}
+
+----------------------------------------------------------------------
+Output:
+Content of the file:
+Hello, this is a file handling example in C++!
+
+---------------------------------------------------------------------
+Conclusion:
+the program to implement File Handling in C++ was successfully executed.
