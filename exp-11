@@ -1,0 +1,56 @@
+Aim:
+To implement the use of Binary operator overloading using cpp
+------------------------------------------------------------
+algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace
+4:Define a class AddNumbers.
+5:Declare two data members (for example, int a and int b).
+6:Define a parameterized constructor to initialize the data members.
+7:Overload the + operator using a member function operator+() to add two objects.
+8:In the main function:
+9:Create two objects with initial values.
+10:Use the overloaded + operator to add the two objects.
+11:Display the result.
+------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class AddNumbers {
+    int num;
+public:
+    AddNumbers(int n = 0) {   // Constructor
+        num = n;
+    }
+
+    // Overloading + operator
+    AddNumbers operator + (AddNumbers obj) {
+        AddNumbers temp;
+        temp.num = num + obj.num;
+        return temp;
+    }
+
+    void display() {
+        cout << "Sum = " << num << endl;
+    }
+};
+
+int main() {
+    AddNumbers n1(10), n2(20);
+    AddNumbers result;
+
+    result = n1 + n2;  // Using overloaded + operator
+    result.display();
+
+    return 0;
+}
+
+----------------------------------------------------------
+output:
+Sum = 30
+-------------------------------------------------------------
+Conclusion:
+Thus, the program to implement Binary Operator Overloading in C++ was successfully executed.
+It demonstrates how the + operator can be overloaded to perform addition of two user-defined objects, enhancing object-oriented programming capabilities.
