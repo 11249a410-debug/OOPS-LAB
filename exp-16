@@ -1,0 +1,48 @@
+Aim:
+To implement a pre virtual function in cpp to demonstrate runtime polymorphism
+---------------------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Use the std namespace.
+4:Create a base class with a pure virtual function (syntax: virtual void display() = 0;).
+5:Create a derived class that inherits from the base class.
+6:Override the virtual function in the derived class.
+7:In the main() function:
+8:Create a base class pointer and assign it the address of the derived class object.
+9:Call the overridden function through the base pointer.
+10:Stop the program
+---------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+// Base class with pure virtual function
+class Shape {
+public:
+    virtual void area() = 0;  // Pure virtual function
+};
+
+// Derived class
+class Circle : public Shape {
+public:
+    void area() {
+        cout << "Area of Circle = π × r × r" << endl;
+    }
+};
+
+int main() {
+    Shape* s;      // Base class pointer
+    Circle c;      
+    s = &c;        // Base pointer points to derived object
+    s->area();     // Calls derived class function (runtime polymorphism)
+    return 0;
+}
+
+----------------------------------------------------
+output:
+Area of Circle = π × r × r
+
+---------------------------------------------------------------
+Conclusion:
+the program to implement a pure virtual function in C++ was successfully executed.
