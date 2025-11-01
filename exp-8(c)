@@ -1,0 +1,54 @@
+*/
+------------------------------------------------------------------------------------------------------------
+Experiment 8(c)
+Dynamic object creation with constructors and destructors
+------------------------------------------------------------------------------------------------------------
+Aim:
+To demonstrate dynamic creation of an object using constructors 
+and proper cleanup using destructors in C++.
+-----------------------------------------------------------------------------------------------------------
+Algorithm:
+Define a class with a constructor and destructor.
+Use the new operator to create an object dynamically.
+The constructor will be called automatically to initialize the object.
+Use the object as required.
+Use the delete operator to destroy the object dynamically.
+The destructor will be called automatically to release any resources.
+------------------------------------------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    Car() {
+        cout << "Constructor called: Car object created." << endl;
+    }
+    ~Car() {
+        cout << "Destructor called: Car object destroyed." << endl;
+    }
+    void display() {
+        cout << "This is a car object." << endl;
+    }
+};
+
+int main() {
+    Car* ptr = new Car();  // Dynamic object creation, constructor called
+
+    ptr->display();        // Accessing member function
+    
+    delete ptr;            // Deallocates memory, destructor called
+    ptr = nullptr;         // Avoid dangling pointer
+    
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------
+output:
+Constructor called: Car object created.
+This is a car object.
+Destructor called: Car object destroyed.
+------------------------------------------------------------------------------------------------------------
+Result:
+When the object is dynamically created, the constructor message is displayed.
+The member function is accessible using the pointer.
+This demonstrates effective use of dynamic object management in C++ using constructors and destructors.
