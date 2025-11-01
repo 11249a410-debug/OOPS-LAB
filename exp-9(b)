@@ -1,0 +1,59 @@
+*/
+------------------------------------------------------------------------------------------------
+Experiment 9(b)
+Example
+------------------------------------------------------------------------------------------------
+Aim:
+To demonstrate the use of static data members 
+and static member functions in a class, specifically to count the number of objects created.
+-------------------------------------------------------------------------------------------------
+Algorithm:
+Define a class with a static data member to keep count of objects.
+Initialize the static data member outside the class.
+Increment the static data member in the constructor.
+Use a static member function to display the count.
+Create multiple objects of the class
+Call the static member function to show the total count of objects.
+-------------------------------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    static int carCount;  // Static data member to count objects
+    
+    Car() {
+        carCount++;  // Increment count when object is created
+    }
+    
+    void displayCarInfo() {
+        cout << "This is a car object." << endl;
+    }
+    
+    static void showCarCount() {
+        cout << "Total cars created: " << carCount << endl;
+    }
+};
+
+int Car::carCount = 0;  // Initialize static member
+
+int main() {
+    Car c1, c2, c3;  // Create 3 objects
+    
+    c1.displayCarInfo();
+    
+    Car::showCarCount();  // Display total number of objects
+    
+    return 0;
+}
+---------------------------------------------------------------------------------------------------
+output:
+This is a car object.
+Total cars created: 3
+---------------------------------------------------------------------------------------------------
+Result:
+The static data member carCount stores data shared by all objects.
+It increments with each object creation via the constructor.
+The static member function showCarCount provides access to this shared data.
+This demonstrates how static members enable counting objects across instances of a class.
