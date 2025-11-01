@@ -1,0 +1,54 @@
+*/
+------------------------------------------------------------------------------
+Experiment 9(a)
+Friend class
+------------------------------------------------------------------------------
+Aim:
+To illustrate the concept of a friend class in C++ where 
+one class can access the private and protected members of another class.
+------------------------------------------------------------------------------
+Algorithm:
+Define two classes.
+Declare one class as a friend of the other using the
+friend keyword inside the class definition.
+Implement member functions in the friend class that access
+private or protected members of the other class.
+Create objects of both classes.
+Use the friend class object to access the private members of the other class.
+------------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class ClassB;  // Forward declaration
+
+class ClassA {
+private:
+    int numA;
+public:
+    ClassA() : numA(10) {}
+    friend class ClassB;  // Declare ClassB as friend
+};
+
+class ClassB {
+public:
+    void showNum(ClassA &a) {
+        cout << "Accessing ClassA private member numA: " << a.numA << endl;
+    }
+};
+
+int main() {
+    ClassA a;
+    ClassB b;
+    b.showNum(a);  // ClassB accessing private member of ClassA
+    
+    return 0;
+}
+-------------------------------------------------------------------------------
+Output:
+Accessing ClassA private member numA: 10
+-------------------------------------------------------------------------------
+Result:
+The program shows how ClassB, declared as a friend of ClassA,
+can access the private member numA of ClassA.
+This demonstrates the special access rights granted to a friend class in C++.
