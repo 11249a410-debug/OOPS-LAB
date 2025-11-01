@@ -1,0 +1,61 @@
+*/
+Aim:
+To implement the use of single private and public inheritence in cpp
+-----------------------------------------------------------------------
+Algorithm:
+1:Start the program.
+2:Include the header file <iostream>.
+3:Define a base class Base with one data member and a function.
+4:Create two derived classes: one with public inheritance, another with private inheritance.
+5:In the main function, create objects of both derived classes.
+6:Call their member functions and display the results.
+7:Stop the program.
+----------------------------------------------------------------------
+code:#include <iostream>
+using namespace std;
+
+// Base class
+class Base {
+public:
+    int num;
+    void getNumber(int n) {
+        num = n;
+    }
+};
+
+// Publicly derived class
+class PublicDerived : public Base {
+public:
+    void showNumber() {
+        cout << "Number from PublicDerived = " << num << endl;
+    }
+};
+
+// Privately derived class
+class PrivateDerived : private Base {
+public:
+    void setNumber(int n) {
+        getNumber(n);
+        cout << "Number from PrivateDerived = " << num << endl;
+    }
+};
+
+int main() {
+    PublicDerived p1;
+    p1.getNumber(10);
+    p1.showNumber();
+
+    PrivateDerived p2;
+    p2.setNumber(20);
+
+    return 0;
+}
+
+------------------------------------------------------------------------------
+output:
+Number from PublicDerived = 10
+Number from PrivateDerived = 20
+
+------------------------------------------------------------------------------
+conclusion:
+the program to implement Single Public and Private Inheritance in C++ was successfully executed.
