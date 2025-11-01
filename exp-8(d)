@@ -1,0 +1,66 @@
+*/
+-----------------------------------------------------------------------
+Experiment 8 (d)
+Illustrative Program
+-------------------------------------------------------------------------
+Aim:
+To illustrate the use of static data members, 
+static member functions, and arrays of objects in C++.
+-------------------------------------------------------------------------
+Algorithm:
+Define a class with a static data member and static member function
+Initialize the static member outside the class.
+Create an array of objects for the class.
+Use the static member function to display the total count of
+objects created.
+Access and manipulate objects in the array as needed.
+-------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    static int carCount;  // Static data member to count cars
+    
+    Car() {
+        carCount++;  // Increment count when object is created
+    }
+    
+    void displayCarInfo() {
+        cout << "This is a car object." << endl;
+    }
+    
+    static void showCarCount() {
+        cout << "Total cars created: " << carCount << endl;
+    }
+};
+
+int Car::carCount = 0;  // Initialize static member
+
+int main() {
+    Car cars[3];  // Array of 3 Car objects
+
+    for (int i = 0; i < 3; i++) {
+        cars[i].displayCarInfo();
+    }
+    
+    Car::showCarCount();  // Display total cars created
+
+    return 0;
+
+}
+-------------------------------------------------------------------------
+Output:
+This is a car object.
+This is a car object.
+This is a car object.
+Total cars created: 3
+-------------------------------------------------------------------------
+Result:
+The program effectively demonstrates creation of 
+multiple objects using an array.
+The static data member carCount correctly counts
+the total objects created.
+The static member function showCarCount displays the shared value.
+Each object in the array can access normal member functions individually.
