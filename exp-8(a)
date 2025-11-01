@@ -1,0 +1,41 @@
+*/
+---------------------------------------------------------------------------------------------------------------------
+Experiment 8(a)
+Allocating and deallocating a single variable
+---------------------------------------------------------------------------------------------------------------------
+Aim:
+To demonstrate allocating and deallocating memory for a single variable dynamically using pointers in C++.
+---------------------------------------------------------------------------------------------------------------------
+Algorithm:
+Declare a pointer variable of the required data type.
+Use the new operator to allocate memory dynamically to the pointer.
+Assign a value to the allocated memory.
+Access and display the value using the pointer.
+Deallocate the memory using the delete operator to free the allocated space.
+Set the pointer to nullptr to avoid dangling pointer issues.
+---------------------------------------------------------------------------------------------------------------------
+code:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* ptr;            // Pointer declaration
+    ptr = new int;       // Dynamic memory allocation
+    
+    *ptr = 25;           // Assign value to allocated memory
+    
+    cout << "Value at ptr: " << *ptr << endl;  // Access and display value
+    
+    delete ptr;          // Deallocate memory
+    ptr = nullptr;       // Avoid dangling pointer
+    
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------
+output:
+Value at ptr: 25
+---------------------------------------------------------------------------------------------------------------------
+Result:
+The program dynamically allocates memory for a single integer variable, 
+assigns a value to it, displays the value, and then deallocates the memory. 
+Proper deallocation avoids memory leaks, and setting the pointer to nullptr prevents accidental use of freed memory.
