@@ -1,0 +1,78 @@
+AIM
+
+To write a C++ program that demonstrates the use of pointers by accessing and printing the value and address of a variable.
+
+ALGORITHM
+
+1.Start.
+2.Declare an integer variable.
+3.Declare a pointer that stores the address of the variable.
+4.Print the value of the variable using normal variable access.
+5.Print the value using the pointer (*ptr).
+6.Print the address of the variable and the address stored in the pointer.
+7.End.
+
+CODE
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+    int *ptr = &num;   // pointer storing address of num
+
+    cout << "Value of num: " << num << endl;
+    cout << "Value using pointer: " << *ptr << endl;
+    cout << "Address of num: " << &num << endl;
+    cout << "Address stored in pointer: " << ptr << endl;
+
+    return 0;
+}
+
+OUTPUT
+Value of num: 10
+Value using pointer: 10
+Address of num: 0x7ffeef...
+Address stored in pointer: 0x7ffeef...
+
+RESULT
+
+The program successfully demonstrates how a pointer stores the address of a variable and accesses its value using dereferencing.
+---------------------------------------------------------------------------------------
+⭐ PROGRAM 2 — INLINE FUNCTION IN C++
+AIM
+
+To write a C++ program that uses an inline function to compute the square of a number.
+
+ALGORITHM
+
+1.Start the program.
+2.Define an inline function square() that returns num * num.
+3.In the main function, accept or define a value.
+4.Call the inline function and display the result.
+5.End the program.
+
+CODE
+#include <iostream>
+using namespace std;
+
+// Inline function for square
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    int num = 5;
+
+    cout << "Number: " << num << endl;
+    cout << "Square using inline function: " << square(num) << endl;
+
+    return 0;
+}
+
+OUTPUT
+Number: 5
+Square using inline function: 25
+
+RESULT
+
+The program successfully demonstrates the use of an inline function, which replaces the function call with the function code during compilation, improving performance for small functions.
