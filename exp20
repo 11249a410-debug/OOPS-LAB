@@ -1,0 +1,60 @@
+AIM
+
+To write a C++ program using an STL container 
+
+ALGORITHM
+Start the program.
+Include the header file <vector> for using the STL vector container.
+Declare a vector of integers.
+Use push_back() to insert elements into the vector.
+Display the elements of the vector using a loop.
+Remove the last element using pop_back().
+Display the updated vector.
+Print the size of the vector using size().
+End the program.
+
+CODE
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Declare vector
+    vector<int> numbers;
+
+    // Insert elements
+    numbers.push_back(10);
+    numbers.push_back(20);
+    numbers.push_back(30);
+    numbers.push_back(40);
+
+    cout << "Elements in the vector: ";
+    for (int n : numbers) {
+        cout << n << " ";
+    }
+    cout << endl;
+
+    // Remove the last element
+    numbers.pop_back();
+
+    cout << "After pop_back(), vector elements: ";
+    for (int n : numbers) {
+        cout << n << " ";
+    }
+    cout << endl;
+
+    // Display size
+    cout << "Current size of vector: " << numbers.size() << endl;
+
+    return 0;
+}
+
+OUTPUT (Sample)
+Elements in the vector: 10 20 30 40
+After pop_back(), vector elements: 10 20 30
+Current size of vector: 3
+
+RESULT
+
+The program successfully demonstrates the use of the STL vector container in C++.
+Operations performed
