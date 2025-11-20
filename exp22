@@ -1,0 +1,34 @@
+AIM
+
+To write a C++ program that demonstrates the use of a user-defined namespace to group related functions and avoid naming conflicts.
+
+ALGORITHM
+1.Start.
+2.Create a namespace (e.g., MySpace).
+3.Inside the namespace, define a function display().
+4.In the main() function:
+5.Call the function using the scope resolution operator (MySpace::display()).
+6.Print the output.
+7.End.
+
+CODE
+#include <iostream>
+using namespace std;
+namespace MySpace {
+    void display() {
+        cout << "Hello from MySpace namespace!" << endl;
+    }
+}
+
+int main() {
+    MySpace::display();
+
+    return 0;
+}
+
+OUTPUT
+Hello from MySpace namespace!
+
+RESULT
+
+The program successfully demonstrates how to create and use a user-defined namespace in C++.
