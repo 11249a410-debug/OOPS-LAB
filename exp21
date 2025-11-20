@@ -1,0 +1,77 @@
+AIM
+
+To write a C++ program using the SFML library to create a window and display a simple 2D graph (a line graph) using graphical primitives.
+
+ALGORITHM
+1.Start the program.
+2.Include SFML headers for graphics and window handling.
+3.Create an SFML window with a fixed width and height.
+4.Define a set of data points representing a small graph.
+5.Convert these data points into sf::VertexArray with LinesStrip type.
+6.Enter a window loop that:
+7.Checks for window close events
+8.Clears the screen
+9.Draws the graph
+10.Displays the updated window
+11.End.
+
+CODE
+
+(Requires SFML installed)
+
+#include <SFML/Graphics.hpp>
+#include <vector>
+
+int main() {
+    // Create window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Graph Example");
+
+    // Sample data points for graph
+    std::vector<float> data = {10, 50, 30, 80, 60, 90, 40};
+
+    // Create vertex array for line graph
+    sf::VertexArray graph(sf::LineStrip, data.size());
+
+    // Map data points to screen coordinates
+    for (size_t i = 0; i < data.size(); i++) {
+        float x = 50 + i * 100;       // spacing on x-axis
+        float y = 500 - data[i] * 4;  // scale and invert y-axis
+
+        graph[i].position = sf::Vector2f(x, y);
+        graph[i].color = sf::Color::Red;
+    }
+
+    // Window loop
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear(sf::Color::White);
+
+        // Draw graph
+        window.draw(graph);
+
+        window.display();
+    }
+
+    return 0;
+}
+
+OUTPUT:
+When the program runs:
+
+A window titled "SFML Graph Example" opens.
+A red line graph is drawn inside the window.
+The graph shows the plotted data points connected by straight lines.
+
+
+RESULT
+
+The program successfully demonstrates how to:
+
+Create a window using SFML
+
+Use sf::VertexArray to draw a graph
