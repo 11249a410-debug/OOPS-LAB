@@ -1,0 +1,82 @@
+AIM
+
+To write a C++ program that catches system signals function.
+
+ALGORITHM
+1.Start the program.
+2.Include required header files: <iostream>, <csignal>, <unistd.h>.
+3.Define a signal handler function that takes an integer signal number.
+4.Inside the handler:
+5.If signal is SIGINT, print a message indicating Ctrl+C was pressed.
+6.if signal is SIGTERM, print a message indicating SIGTERM was received.
+7.In the main() function:
+8.Register the handler using signal(SIGINT, handler);
+9.Register the handler using signal(SIGTERM, handler);
+10.Print the process ID (PID) to allow sending SIGTERM using the kill command.
+11.Create an infinite loop so the program keeps running.
+12.The program prints "Working…" repeatedly every 2 seconds.
+13.When the user presses Ctrl+C or sends kill -15 PID, the registered handler executes.
+14.End
+
+CODE
+#include <iostream>
+#include <csignal>
+#include <unistd.h>
+
+using namespace std;
+
+// Signal handler function
+void signalHandler(int signalNum) {
+    if (signalNum == SIGINT) {
+        cout << "\nReceived SIGINT (Ctrl + C). Program will not terminate immediately.\n";
+    }
+    else if (signalNum == SIGTERM) {
+        cout << "\nReceived SIGTERM. Preparing to shutdown...\n";
+    }
+}
+
+int main() {
+
+    // Register signal handlers
+    signal(SIGINT, signalHandler);   // Ctrl + C
+    signal(SIGTERM, signalHandler);  // Kill signal
+
+    cout << "Program running... (Press Ctrl + C to send SIGINT)\n";
+    cout << "PID: " << getpid() << endl;
+
+    // Infinite loop to keep program running
+    while (true) {
+        cout << "Working..." << endl;
+        sleep(2);
+    }
+
+    return 0;
+}
+
+OUTPUT :
+Program running... (Press Ctrl + C to send SIGINT)
+PID: 8241
+Working...
+Working...
+Working...
+
+Received SIGINT (Ctrl + C). Program will not terminate immediately.
+Working...
+Working...
+
+Sending SIGTERM from another terminal
+
+Command:
+
+kill -15 8241
+
+
+Output:
+
+Received SIGTERM. Preparing to shutdown...
+Working...
+Working...
+
+RESULT
+
+The C++ program successfully catches SIGINT and SIGTERM signals using a custom signal handler.
