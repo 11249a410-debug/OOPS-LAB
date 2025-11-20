@@ -1,0 +1,42 @@
+AIM
+
+To write a simple C++ program that works as a CGI script and sends HTML output to a web browser.
+
+ALGORITHM
+
+Start the program.
+Include the <iostream> header for input/output.
+Print the required HTTP header "Content-type: text/html" followed by a blank line.\
+Print an HTML page using C++ cout.
+End the program.
+
+CODE:
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Mandatory HTTP header
+    cout << "Content-type: text/html\n\n";
+
+    // HTML output
+    cout << "<html>";
+    cout << "<head><title>C++ Web Program</title></head>";
+    cout << "<body>";
+    cout << "<h1>Hello from C++ CGI Program!</h1>";
+    cout << "<p>This webpage is generated using a C++ program.</p>";
+    cout << "</body>";
+    cout << "</html>";
+
+    return 0;
+}
+
+OUTPUT:
+Hello from C++ CGI Program!
+This webpage is generated using a C++ program.
+
+
+Displayed inside a properly formatted HTML page.
+
+RESULT
+
+The C++ program successfully generates an HTML webpage using CGI, demonstrating how C++ can be used in web programming by sending HTML content to the browser.
