@@ -1,0 +1,75 @@
+AIM
+
+To write a C++ program that represents a graph using an adjacency list and displays the connections of each node.
+
+ALGORITHM
+1.Start.
+2.Include the necessary header files.
+3.Ask the user for the number of vertices and edges.
+4.Create a vector of lists to represent the adjacency list.
+5.For each edge, take two vertices u and v.
+6.Insert v into the adjacency list of u (and u into the list of v for an undirected graph).
+7.After input, print the adjacency list.
+8.End.
+
+CODE
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int vertices, edges;
+    cout << "Enter number of vertices: ";
+    cin >> vertices;
+
+    cout << "Enter number of edges: ";
+    cin >> edges;
+
+    // Create adjacency list
+    vector<vector<int>> graph(vertices);
+
+    cout << "Enter edges (u v):" << endl;
+    for (int i = 0; i < edges; i++) {
+        int u, v;
+        cin >> u >> v;
+
+        // Add edge (undirected graph)
+        graph[u].push_back(v);
+        graph[v].push_back(u);
+    }
+
+    cout << "\nAdjacency List Representation:\n";
+    for (int i = 0; i < vertices; i++) {
+        cout << i << " -> ";
+        for (int node : graph[i]) {
+            cout << node << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+OUTPUT (Example)
+
+If the input is:
+
+Enter number of vertices: 4
+Enter number of edges: 3
+Enter edges (u v):
+0 1
+1 2
+2 3
+
+
+Output:
+
+Adjacency List Representation:
+0 -> 1
+1 -> 0 2
+2 -> 1 3
+3 -> 2
+
+RESULT
+
+The program successfully demonstrates a basic graph concept in C++
