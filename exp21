@@ -1,77 +1,69 @@
-AIM
+Experiment 21
+Implementation of File Handling Using Templats 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
 
-To write a C++ program using the SFML library to create a window and display a simple 2D graph (a line graph) using graphical primitives.
+To implement file handling in C++ using a function template so that the same function can write different data types (int, float, string, char) into a file.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
 
-ALGORITHM
-1.Start the program.
-2.Include SFML headers for graphics and window handling.
-3.Create an SFML window with a fixed width and height.
-4.Define a set of data points representing a small graph.
-5.Convert these data points into sf::VertexArray with LinesStrip type.
-6.Enter a window loop that:
-7.Checks for window close events
-8.Clears the screen
-9.Draws the graph
-10.Displays the updated window
-11.End.
+1. Start the program.
+2. Include the required header <fstream> for file operations.
+3. Create a function template using:
+template <class T>
+4. Inside the function:
+Open a file using ofstream.
+Write template-type data into the file.
+Close the file.
+5. In the main() function:
+Call the template function for different data types (int, float, string).
+6. Open the file again using ifstream and read the contents.
+7. Display the data on the screen.
+8. End the program.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Program :
 
-CODE
-
-(Requires SFML installed)
-
-#include <SFML/Graphics.hpp>
-#include <vector>
-
+#include <iostream>
+#include <fstream>
+using namespace std;
+// Template function for writing data to file
+template <class T>
+void writeToFile(T data, const char *filename) {
+    ofstream fout(filename);
+    fout << data;
+    fout.close();
+}
+// Template function for reading from file
+template <class T>
+void readFromFile(const char *filename) {
+    ifstream fin(filename);
+    T data;
+    fin >> data;
+    cout << "Data read from file: " << data << endl;
+    fin.close();
+}
 int main() {
-    // Create window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Graph Example");
-
-    // Sample data points for graph
-    std::vector<float> data = {10, 50, 30, 80, 60, 90, 40};
-
-    // Create vertex array for line graph
-    sf::VertexArray graph(sf::LineStrip, data.size());
-
-    // Map data points to screen coordinates
-    for (size_t i = 0; i < data.size(); i++) {
-        float x = 50 + i * 100;       // spacing on x-axis
-        float y = 500 - data[i] * 4;  // scale and invert y-axis
-
-        graph[i].position = sf::Vector2f(x, y);
-        graph[i].color = sf::Color::Red;
-    }
-
-    // Window loop
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear(sf::Color::White);
-
-        // Draw graph
-        window.draw(graph);
-
-        window.display();
-    }
-
+    // Writing and reading int
+    writeToFile<int>(100, "intdata.txt");
+    readFromFile<int>("intdata.txt");
+    // Writing and reading float
+    writeToFile<float>(45.67, "floatdata.txt");
+    readFromFile<float>("floatdata.txt");
+    // Writing and reading string
+    writeToFile<string>("Hello Templates", "stringdata.txt");
+ readFromFile<string>("stringdata.txt");
     return 0;
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
 
-OUTPUT:
-When the program runs:
+Data read from file: 100
+Data read from file: 45.67
+Data read from file: Hello
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(Note: When reading strings separated by spaces, only the first word is read.)
 
-A window titled "SFML Graph Example" opens.
-A red line graph is drawn inside the window.
-The graph shows the plotted data points connected by straight lines.
 
+Result:
 
-RESULT
-
-The program successfully demonstrates how to:
-
-Create a window using SFML
-
-Use sf::VertexArray to draw a graph
+Thus, file handling using C++ templates is successfully implemented. The program demonstrates how a single template function can perform file operations for different data types, increasing reusability and flexibility.
