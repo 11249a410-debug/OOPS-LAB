@@ -1,34 +1,62 @@
-AIM
+Experiment 22
+ Implementation of Exception Handling Using Template
 
-To write a C++ program that demonstrates the use of a user-defined namespace to group related functions and avoid naming conflicts.
+Aim:
 
-ALGORITHM
-1.Start.
-2.Create a namespace (e.g., MySpace).
-3.Inside the namespace, define a function display().
-4.In the main() function:
-5.Call the function using the scope resolution operator (MySpace::display()).
-6.Print the output.
-7.End.
+To implement exception handling in C++ using a function template, so that the same function can validate and handle errors for different data types.
 
-CODE
+Algorithm:
+
+1. Start the program.
+2. Create a function template using template <class T>.
+3. Inside the template function:
+Check for invalid conditions (e.g., division by zero).
+Use throw to raise an exception when the condition fails.
+Use try–catch to handle the exception and display an error message.
+4. In the main() function:
+Call the template function with various data types (int, float).
+5. Display the results or the exception message.
+6. End the program 
+
+Program :
+
 #include <iostream>
 using namespace std;
-namespace MySpace {
-    void display() {
-        cout << "Hello from MySpace namespace!" << endl;
+// Template function for safe division
+template <class T>
+T safeDivide(T a, T b) {
+    try {
+        if (b == 0)
+            throw "Division by zero error!";
+        return a / b;
+    }
+    catch (const char *msg) {
+        cout << "Exception: " << msg << endl;
+        return 0;   // return default value
     }
 }
-
 int main() {
-    MySpace::display();
+    // Integer division
+    cout << "Result (int): " << safeDivide<int>(10, 2) << endl;
+    cout << "Result (int): " << safeDivide<int>(10, 0) << endl;
+    // Float division
+    cout << "Result (float): " << safeDivide<float>(7.5, 2.5) << endl;
+    cout << "Result (float): " << safeDivide<float>(7.5, 0.0) << endl;
 
     return 0;
 }
 
-OUTPUT
-Hello from MySpace namespace!
+Output:
 
-RESULT
+Result (int): 5
+Exception: Division by zero error!
+Result (int): 0
+Result (float): 3
+Exception: Division by zero error!
+Result (float): 0
 
-The program successfully demonstrates how to create and use a user-defined namespace in C++.
+
+Result:
+
+The program successfully demonstrates exception handling using templates in C++.
+A single template function is used to detect and handle runtime errors (like division by zero) for multiple data types, proving the flexibility of generic programming with exception handling.
